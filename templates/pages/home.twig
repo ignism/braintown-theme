@@ -1,0 +1,56 @@
+{% extends 'base.twig' %}
+
+{% block header %}
+    <header class="flex flex-wrap content-between h-screen px-10 py-10">
+        <div class="w-full">
+            <img src="{{ theme.link }}/assets/images/logo.svg" alt="">
+        </div>
+
+        <div class="w-5/6 mx-auto mb-10">
+            <p class="text-4xl mb-12">
+                Investeren in het<br>
+                commercieel vastgoed<br>
+                van de toekomst
+            </p>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+
+    <div class="px-10 py-10 border-b w-full">
+        <div class="relative w-full expander-wrapper">
+            <div class="flex">
+                <div class="w-5/6 h-10">
+                    <h2 class="text-4xl font-normal">Over Braintown</h2>
+                </div>
+                <div class="w-1/6 text-right">
+                    <a href="#" class="text-xl">contact</a>
+                </div>
+            </div>
+            <div id="over-braintown" class="expander-target">
+                <div class="flex mt-10">
+                    <div class="w-1/12"></div>
+                    <div class="w-3/4">
+                        <p class="text-4xl text-grey">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum reiciendis eaque dolor quia? Nulla minus nam ipsam impedit enim hic. Nihil, velit quam voluptas a fugiat id ipsa sint. Ducimus!
+                        </p>
+                    </div>
+                    <div class="w-1/6"></div>
+                </div>
+                <div class="flex py-10">
+                    <div class="w-full h-10"></div>
+                </div>
+            </div>
+            <div class="absolute w-full pin-b">
+                <div class="flex justify-end">
+                    <div class="w-1/12 flex content-center justify-center h-10 expander-button" data-target="over-braintown">
+                        <img src="{{ theme.link }}/assets/images/minus.svg">
+                    </div>
+                    <div class="w-1/12 h-10"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -60,3 +60,14 @@
   * @import "utilities/background-patterns";
   * @import "utilities/skew-transforms";
   */
+
+  .expander-target.active {
+    max-height: 640px;
+  }
+
+  .expander-target {
+    transition: max-height 800ms ease;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+  }

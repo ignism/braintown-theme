@@ -3,6 +3,6 @@ module.exports = {
     'postcss-import': {},
     'tailwindcss': 'tailwind.js',
     'autoprefixer': {},
-    'cssnano': {}
+    //'cssnano': {}
   }
 }

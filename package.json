@@ -33,5 +33,10 @@
     "tailwindcss": "^0.6.6",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "popmotion": "^8.5.4",
+    "scrollmagic": "^2.0.6",
+    "stylefire": "^2.3.3"
   }
 }
