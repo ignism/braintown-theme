@@ -128,7 +128,7 @@ module.exports = {
 
   fonts: {
     'sans': [
-      'NimbusSanNov-Reg',
+      'NimbusSanNov',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',

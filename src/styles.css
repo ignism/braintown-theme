@@ -91,7 +91,6 @@
   }
 
   .text-larger {
-    font-family: NimbusSanNov-Reg;
     font-weight: normal;
     font-size: 40px;
     letter-spacing: 0.4px;
@@ -99,7 +98,6 @@
   }
 
   .text-large {
-    font-family: NimbusSanNov-Reg;
     font-size: 24px;
     letter-spacing: 0.2px;
     line-height: 32px;
