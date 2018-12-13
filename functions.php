@@ -104,16 +104,28 @@ class StarterSite extends Timber\Site {
 	 * @param string $text being 'foo', then returned 'foo bar!'.
 	 */
 	public function myfoo( $text ) {
-		$text .= ' bar!';
+        $text .= ' bar!';
+        
 		return $text;
-	}
+    }
+    
+    public function slug( $text ) {
+        $text = strtolower($text);
+        $text = str_replace(' ', '-', $text);
+        $text = preg_replace('/[^A-Za-z0-9\-]/', '', $text);
+        
+		return $text;
+    }
+    
 	/** This is where you can add your own functions to twig.
 	 *
 	 * @param string $twig get extension.
 	 */
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig_Extension_StringLoader() );
-		$twig->addFilter( new Twig_SimpleFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+        $twig->addFilter( new Twig_SimpleFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+        $twig->addFilter( new Twig_SimpleFilter( 'slug', array( $this, 'slug' ) ) );
+
 		return $twig;
 	}
 }

@@ -4,8 +4,8 @@
 </head>
 {% endblock %}
 
-<body class="max-w-5xl mx-auto {{body_class}}" data-template="base.twig">
-    {% block header %}
+<body class="max-w-5xl mx-auto bg-green-light text-green-dark font-sans {{body_class}}" data-template="base.twig">
+{% block header %}
     <header class="flex">
         <div class="wrapper">
             <h1 class="hdr-logo" role="banner">
@@ -18,18 +18,15 @@
             </nav>
             <!-- #nav -->
         </div>
-        </header>
-    {% endblock %}
+    </header>
+{% endblock %}
 
-
-    {% block content %}
-        Sorry, no content
-    {% endblock %}  
+{% block content %}
+    Sorry, no content
+{% endblock %}
 
 {% block footer %}
-    <footer id="footer" class="flex">
-        {% include 'footer.twig' %}
-    </footer>
+    {% include 'footer.twig' %}
     {{ function('wp_footer') }}
 {% endblock %}
 

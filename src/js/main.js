@@ -9,16 +9,17 @@ import { tween, styler } from 'popmotion';
     element.onclick = event => {
       let target = document.getElementById(element.getAttribute('data-target'))
 
+      element.classList.toggle('active')
       target.classList.toggle('active')
 
-      if (target.classList.contains('active')) {
-        console.log(offset(target).top)
-        tween({
-          from: 0,
-          to: offset(target).top,
-          duration: 800
-        }).start(v => viewportStyler.set('scrollTop', v))
-      }
+      // if (target.classList.contains('active')) {
+      //   console.log(offset(target).top)
+      //   tween({
+      //     from: 0,
+      //     to: offset(target).top,
+      //     duration: 800
+      //   }).start(v => viewportStyler.set('scrollTop', v))
+      // }
     }
   });
 })()

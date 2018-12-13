@@ -61,6 +61,25 @@
   * @import "utilities/skew-transforms";
   */
 
+  .expander-button .plus,  .expander-button .minus {
+    width: 32px;
+    height: 2px;
+    margin-left: -16px;
+    margin-top: -1px;
+    left: 50%;
+    top: 50%;
+  }
+
+  .expander-button .plus {
+    transition: transform 200ms ease-out, opacity 200ms ease-out;
+    transform: rotate(90deg);
+    opacity: 1;
+  }
+  .expander-button.active .plus {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
   .expander-target.active {
     max-height: 640px;
   }
@@ -71,3 +90,46 @@
     max-height: 0;
     overflow: hidden;
   }
+
+  .text-larger {
+    font-family: NimbusSanNov-Reg;
+    font-weight: normal;
+    font-size: 40px;
+    letter-spacing: 0.4px;
+    line-height: 48px;
+  }
+
+  .text-large {
+    font-family: NimbusSanNov-Reg;
+    font-size: 24px;
+    letter-spacing: 0.2px;
+    line-height: 32px;
+  }
+
+  .reference-name {
+    position: relative;
+  }
+  .reference-name::before {
+    position: absolute;
+    content: "\2014";
+    left: -1.25rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: #33434B;
+  }
+
+  a:hover, a.active {
+    border-bottom: 1px solid #33434B;
+  }
+
+  /* background
+  #FFFFFF accents
+  #F0F8F5 main-background
+  #B4DECC <- border
+  #B4DECC 50% reference */
+
+  /* text
+    #33434B main
+  */
