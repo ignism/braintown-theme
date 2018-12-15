@@ -37,6 +37,7 @@
   "dependencies": {
     "popmotion": "^8.5.4",
     "scrollmagic": "^2.0.6",
+    "siema": "^1.5.1",
     "stylefire": "^2.3.3"
   }
 }

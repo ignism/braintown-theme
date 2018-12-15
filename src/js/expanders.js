@@ -21,7 +21,7 @@ import { tween, styler } from 'popmotion';
       //   }).start(v => viewportStyler.set('scrollTop', v))
       // }
     }
-  });
+  })
 })()
 
 function offset(el) {

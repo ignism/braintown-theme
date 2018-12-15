@@ -4,7 +4,7 @@
 </head>
 {% endblock %}
 
-<body class="max-w-5xl mx-auto bg-green-light text-green-dark font-sans {{body_class}}" data-template="base.twig">
+<body class="mx-auto bg-green-light text-green-dark font-sans {{body_class}}" data-template="base.twig" style="max-width: 1680px">
 {% block header %}
     <header class="flex">
         <div class="wrapper">
@@ -27,8 +27,10 @@
 
 {% block footer %}
     {% include 'footer.twig' %}
-    {{ function('wp_footer') }}
 {% endblock %}
+
+{{ function('wp_footer') }}
+
 
 <script src="{{ theme.link }}/dist/bundle.js"></script>
 </body>
