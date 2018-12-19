@@ -10,7 +10,7 @@ import Siema from 'siema'
         const instance = new Siema({
             selector: slider,
             loop: true
-        });
+        });        
 
         let buttons = Array.from(wrapper.getElementsByClassName('slider-button'))
 

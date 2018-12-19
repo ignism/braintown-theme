@@ -2,14 +2,14 @@
     <div class="relative w-full expander-wrapper">
         <div class="flex">
             <div class="w-5/6 h-10">
-                <h2 class="text-larger font-normal capitalize h-10" style="line-height: 40px">{{ title }}</h2>
+                <h2 class="text-larger relative z-20 expander-button font-normal capitalize h-10" data-target="{{ title|slug }}" style="line-height: 40px">{{ title }}</h2>
             </div>
         </div>
         <div id="{{ title|slug }}" class="expander-target">
             <div class="flex flex-wrap my-16 tablet:my-32 desktop:my-40">
-                <div class="w-full tablet:w-5/6 desktop:w-3/4 ml-0 tablet:ml-1/12">
+                <div class="w-full tablet:w-5/6 desktop:w-3/4 widescreen:w-1/2 ml-0 tablet:ml-1/12">
                     <p class="text-larger mb-0">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum reiciendis eaque dolor quia? Nulla minus nam ipsam impedit enim hic. Nihil, velit quam voluptas a fugiat id ipsa sint. Ducimus!
+                        {{ text }}
                     </p>
                 </div>
             </div>

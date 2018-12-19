@@ -9,7 +9,12 @@ import { tween, styler } from 'popmotion';
     element.onclick = event => {
       let target = document.getElementById(element.getAttribute('data-target'))
 
-      element.classList.toggle('active')
+      expanders.forEach(button => {
+        if (target === document.getElementById(button.getAttribute('data-target'))) {
+          button.classList.toggle('active')
+        }
+      })
+
       target.classList.toggle('active')
 
       // if (target.classList.contains('active')) {

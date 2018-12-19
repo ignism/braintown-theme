@@ -1,16 +1,16 @@
 <?php
-require_once( __DIR__ . '/vendor/autoload.php' );
+require_once(__DIR__ . '/vendor/autoload.php');
 
 $timber = new Timber\Timber();
 
-if ( ! class_exists( 'Timber' ) ) {
-	add_action( 'admin_notices', function() {
-		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
-	});
-	add_filter('template_include', function( $template ) {
-		return "<h1>No Timber</h1>";
-	});
-	return;
+if (! class_exists('Timber')) {
+    add_action('admin_notices', function () {
+        echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
+    });
+    add_filter('template_include', function ($template) {
+        return "<h1>No Timber</h1>";
+    });
+    return;
 }
 /**
  * Sets the directories (inside your theme) to find .twig files
@@ -25,108 +25,134 @@ Timber::$autoescape = false;
  * We're going to configure our theme inside of a subclass of Timber\Site
  * You can move this to its own file and include here via php's include("MySite.php")
  */
-class StarterSite extends Timber\Site {
-	/** Add timber support. */
-	public function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
-		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
-		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
-		parent::__construct();
-	}
-	/** This is where you can register custom post types. */
-	public function register_post_types() {
-	}
-	/** This is where you can register custom taxonomies. */
-	public function register_taxonomies() {
-	}
-	/** This is where you add some context
-	 *
-	 * @param string $context context['this'] Being the Twig's {{ this }}.
-	 */
-	public function add_to_context( $context ) {
-		$context['foo'] = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
-		$context['menu'] = new Timber\Menu();
-		$context['site'] = $this;
-		return $context;
-	}
-	public function theme_supports() {
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support(
-			'html5', array(
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-			)
-		);
-		/*
-		 * Enable support for Post Formats.
-		 *
-		 * See: https://codex.wordpress.org/Post_Formats
-		 */
-		add_theme_support(
-			'post-formats', array(
-				'aside',
-				'image',
-				'video',
-				'quote',
-				'link',
-				'gallery',
-				'audio',
-			)
-		);
-		add_theme_support( 'menus' );
-	}
-	/** This Would return 'foo bar!'.
-	 *
-	 * @param string $text being 'foo', then returned 'foo bar!'.
-	 */
-	public function myfoo( $text ) {
+class StarterSite extends Timber\Site
+{
+    /** Add timber support. */
+    public function __construct()
+    {
+        add_action('after_setup_theme', array( $this, 'theme_supports' ));
+        add_filter('timber_context', array( $this, 'add_to_context' ));
+        add_filter('get_twig', array( $this, 'add_to_twig' ));
+        add_action('init', array( $this, 'register_post_types' ));
+        add_action('init', array( $this, 'register_taxonomies' ));
+        parent::__construct();
+    }
+    /** This is where you can register custom post types. */
+    public function register_post_types()
+    {
+        require_once(__DIR__ . '/includes/cpt-project.php');
+    }
+    /** This is where you can register custom taxonomies. */
+    public function register_taxonomies()
+    {
+    }
+    /** This is where you add some context
+     *
+     * @param string $context context['this'] Being the Twig's {{ this }}.
+     */
+    public function add_to_context($context)
+    {
+        $context['foo'] = 'bar';
+        $context['stuff'] = 'I am a value set in your functions.php file';
+        $context['notes'] = 'These values are available everytime you call Timber::get_context();';
+        $context['menu'] = new Timber\Menu();
+        $context['site'] = $this;
+        $context['projects'] = array();
+        return $context;
+    }
+    public function theme_supports()
+    {
+        // Add default posts and comments RSS feed links to head.
+        add_theme_support('automatic-feed-links');
+        /*
+         * Let WordPress manage the document title.
+         * By adding theme support, we declare that this theme does not use a
+         * hard-coded <title> tag in the document head, and expect WordPress to
+         * provide it for us.
+         */
+        add_theme_support('title-tag');
+        /*
+         * Enable support for Post Thumbnails on posts and pages.
+         *
+         * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+         */
+        add_theme_support('post-thumbnails');
+        /*
+         * Switch default core markup for search form, comment form, and comments
+         * to output valid HTML5.
+         */
+        add_theme_support(
+            'html5',
+            array(
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+            )
+        );
+        /*
+         * Enable support for Post Formats.
+         *
+         * See: https://codex.wordpress.org/Post_Formats
+         */
+        add_theme_support(
+            'post-formats',
+            array(
+                'aside',
+                'image',
+                'video',
+                'quote',
+                'link',
+                'gallery',
+                'audio',
+            )
+        );
+        add_theme_support('menus');
+    }
+    /** This Would return 'foo bar!'.
+     *
+     * @param string $text being 'foo', then returned 'foo bar!'.
+     */
+    public function myfoo($text)
+    {
         $text .= ' bar!';
         
-		return $text;
+        return $text;
     }
     
-    public function slug( $text ) {
+    public function slug($text)
+    {
         $text = strtolower($text);
         $text = str_replace(' ', '-', $text);
         $text = preg_replace('/[^A-Za-z0-9\-]/', '', $text);
         
-		return $text;
+        return $text;
     }
     
-	/** This is where you can add your own functions to twig.
-	 *
-	 * @param string $twig get extension.
-	 */
-	public function add_to_twig( $twig ) {
-		$twig->addExtension( new Twig_Extension_StringLoader() );
-        $twig->addFilter( new Twig_SimpleFilter( 'myfoo', array( $this, 'myfoo' ) ) );
-        $twig->addFilter( new Twig_SimpleFilter( 'slug', array( $this, 'slug' ) ) );
+    /** This is where you can add your own functions to twig.
+     *
+     * @param string $twig get extension.
+     */
+    public function add_to_twig($twig)
+    {
+        $twig->addExtension(new Twig_Extension_StringLoader());
+        $twig->addFilter(new Twig_SimpleFilter('myfoo', array( $this, 'myfoo' )));
+        $twig->addFilter(new Twig_SimpleFilter('slug', array( $this, 'slug' )));
 
-		return $twig;
-	}
+        return $twig;
+    }
 }
 new StarterSite();
+
+add_action('admin_init', 'my_remove_menu_pages');
+function my_remove_menu_pages()
+{
+    remove_menu_page('edit.php'); // Posts
+    remove_menu_page('link-manager.php'); // Links
+    remove_menu_page('edit-comments.php'); // Comments
+    remove_menu_page('plugins.php'); // Plugins
+    remove_menu_page('themes.php'); // Appearance
+    //remove_menu_page('users.php'); // Users
+    remove_menu_page('tools.php'); // Tools
+    remove_menu_page('options-general.php'); // Settings
+}

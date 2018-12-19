@@ -1,38 +1,65 @@
 {% extends 'base.twig' %}
 
 {% block header %}
-    <header class="px-5 tablet:px-10 py-10 bg-green-dark text-green h-screen">
-        <div class="-ml-5/2 flex flex-wrap content-between h-full">
-        <div class="w-full px-5/2">
-            <img src="{{ theme.link }}/assets/images/logo.svg" alt="">
-        </div>
+    <header class="relative">
+        <div class="absolute pin z-0" style="background: url({{ Image(post.header_background).src }}); background-position: center; background-size: cover;"></div>
+        <div class="relative z-10 px-5 tablet:px-10 py-10 bg-green-dark-85 text-green h-screen">
+            <div class="-ml-5/2 flex flex-wrap content-between h-full">
+            <div class="w-full px-5/2">
+                <img src="{{ theme.link }}/assets/images/logo.svg" class="w-3/4 tablet:w-auto">
+            </div>
 
-        <div class="w-5/6 px-5/2 ml-0 tablet:ml-5/2">
-            <p class="text-larger mb-12">
-                Investeren in het<br>
-                commercieel vastgoed<br>
-                van de toekomst
-            </p>
-        </div>
+            <div class="w-5/6 px-5/2 ml-0 tablet:ml-5/2">
+                <p class="text-larger mb-12">
+                    {{ post.header_subtitle }}
+                </p>
+            </div>
+            </div>
         </div>
     </header>
 {% endblock %}
 
 {% block content %}
 
+    {# {% set ticker = 0 %} #}
+    {# {% for project in projects %}
+
+        {% if loop.index0 % 6 == 0 %}
+            {{ ticker }}
+        {% elseif loop.index0 % 6 == 1 %}
+            {{ ticker }}
+        {% elseif loop.index0 % 6 == 2 %}
+            {{ ticker }}
+        {% elseif loop.index0 % 6 == 3 %}
+            {%set ticker = 3 %}
+            {{ ticker }}
+        {% elseif loop.index0 % 6 == 4 %}
+            {%set ticker = 4 %}
+            {{ ticker }}
+        {% elseif loop.index0 % 6 == 5 %}
+            {%set ticker = 5 %}
+            {{ ticker }}
+        {% endif %}
+
+
+    {% endfor %} #}
+
     {% include '/partials/text.twig' with {
-        'title': 'over braintown'
+        'title': post.about_title,
+        'text': post.about_text
     } %}
 
-    {% include '/partials/text-expander.twig' with {
-        'title': 'Asset Management'
-    } %}
+    {% for item in post.meta('home_expanding_blocks')  %}
+        {% include '/partials/text-expander.twig' with {
+            'title': item.title,
+            'text': item.text
+        } %}
+    {% endfor %}
 
-    {% include '/partials/text-expander.twig' with {
-        'title': 'Duurzaamheid'
+    {% include '/partials/projects.twig' with {
+        'about': post.home_projects_about,
+        'numbers': post.meta('home_projects_numbers')
     } %}
-
-    {% include '/partials/projects.twig' %}
 
     {% include '/partials/reference.twig' %}
 

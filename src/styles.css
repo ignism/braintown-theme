@@ -107,13 +107,13 @@ p {
 }
 
 .text-large {
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: 0.2px;
     line-height: 20px;
 }
 
 .text-small {
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: 0.2px;
     line-height: 20px;
 }
@@ -140,6 +140,28 @@ a.active,
 .active a {
     border-bottom: 1px solid #33434B;
     cursor: pointer;
+}
+
+a.no-border:hover,
+a.no-border {
+  border-bottom: 0;
+}
+
+
+.text-green a {
+  text-decoration: none;
+  color: #b4decc;
+}
+
+.text-green a:hover,
+.text-green a.active,
+.text-green .active a {
+    border-bottom: 1px solid #b4decc;
+    cursor: pointer;
+}
+
+.flex {
+  transition: padding 400ms ease;
 }
 
 @media (min-width: 768px) {
@@ -177,3 +199,4 @@ a.active,
         line-height: 28px;
     }
 }
+

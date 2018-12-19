@@ -60,7 +60,9 @@ let colors = {
   'green': '#B4DECC',
   'green-light': '#F0F8F5',
 
-  'green/2': 'rgba(180, 222, 204, 0.5)'
+  'green/2': 'rgba(180, 222, 204, 0.5)',
+  'green-dark-85': 'rgba(51, 67, 75, 0.85)',
+  'green-dark-40': 'rgba(51, 67, 75, 0.40)'
 }
 
 module.exports = {
@@ -107,6 +109,7 @@ module.exports = {
     'xl': '1200px',
     'tablet': '768px',
     'desktop': '1024px',
+    'widescreen': '1440px',
   },
 
 
@@ -867,16 +870,16 @@ module.exports = {
     height: ['responsive'],
     leading: ['responsive'],
     lists: ['responsive'],
-    margin: ['responsive'],
+    margin: ['responsive', 'hover'],
     maxHeight: ['responsive'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],
     minWidth: ['responsive'],
-    negativeMargin: ['responsive'],
+    negativeMargin: ['responsive', 'hover'],
     opacity: ['responsive'],
     outline: ['focus'],
     overflow: ['responsive'],
-    padding: ['responsive'],
+    padding: ['responsive,', 'hover'],
     pointerEvents: ['responsive'],
     position: ['responsive'],
     resize: ['responsive'],

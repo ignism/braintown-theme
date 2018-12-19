@@ -1,15 +1,15 @@
 <section class="flex flex-wrap slider-wrapper">
     <div class="w-10/12 tablet:w-11/12">
         <div class="slider w-full">
-            <div class="w-full" style="background-image: url(https://dummyimage.com/783x440/888/bbb); background-size: cover; background-position: center; height: 60vw"></div>
-            <div class="w-full" style="background-image: url(https://dummyimage.com/783x440/666/bbb); background-size: cover; background-position: center; height: 60vw"></div>
-            <div class="w-full" style="background-image: url(https://dummyimage.com/783x440/aaa/bbb); background-size: cover; background-position: center; height: 60vw"></div>
+        {% for slide in post.meta('image_slider') %}
+            <div class="w-full" style="background-image: url({{ Image(slide).src }}); background-size: cover; background-position: center; height: 60vw"></div>
+        {% endfor %}
         </div>
     </div>
 
     <div class="w-2/12 tablet:w-1/12 text-large flex flex-wrap content-center slider-navigation">
-        <div class="w-full py-5 text-center slider-button" data-slide="1"><a>01</a></div>
-        <div class="w-full py-5 text-center slider-button" data-slide="2"><a>02</a></div>
-        <div class="w-full py-5 text-center slider-button" data-slide="3"><a>03</a></div>
+    {% for slide in post.meta('image_slider') %}
+        <div class="w-full py-5 text-center slider-button" data-slide="{{ loop.index0 }}"><a>0{{ loop.index }}</a></div>
+        {% endfor %}
     </div>
 </section>

@@ -3,7 +3,7 @@
 {% block header %}
 <header class="px-5 tablet:px-10 py-10 h-20 flex flex-wrap content-between">
     <div class="w-full">
-        <img src="{{ theme.link }}/assets/images/logo-dark.svg" alt="">
+        <a class="no-border" href="{{ site.url }}"><img src="{{ theme.link }}/assets/images/logo-dark.svg" alt=""></a>
     </div>
 </header>
 {% endblock %}
@@ -12,37 +12,8 @@
 
 <section class="px-5 tablet:px-10 py-10 flex flex-wrap">
     <div class="w-11/12 tablet:w-10/12 desktop:w-8/12 ml-0 tablet:ml-1/12">
-        <p>
-            Braintown respecteert de privacy van alle gebruikers van haar site en draagt er zorg voor dat de
-            persoonlijke informatie die u ons verschaft vertrouwelijk wordt behandeld. Braintown zal uw persoonlijke
-            gegevens niet aan derden verkopen.
-        </p>
-        <p>
-            Braintown gebruikt de gegevens van haar klanten op de volgende wijze:
-            - Als u een bericht of melding plaatst, hebben we uw naam en informatie betreffende het pand nodig om u op
-            de hoogte te houden van het verloop van uw melding.
-            - Om het gebruik van onze Braintown app zo aangenaam mogelijk te laten verlopen, slaan wij met uw
-            toestemming uw persoonlijke gegevens en de gegevens met betrekking tot uw gebruik van onze diensten op.
-            Hierdoor kunnen wij de app personaliseren en in uw voordeel verbeteren.
-            - Als u bij Braintown een bericht/melding plaatst, bewaren wij – indien gewenst – uw gegevens op een Secure
-            Server (beveiligde computer). U kunt een gebruikersnaam en wachtwoord opgeven voor het opslaan van uw naam
-            en adres, telefoonnummer, e-mailadres.
-            - Gegevens over het gebruik van onze app en de feedback die we krijgen van onze bezoekers helpen ons om
-            onze site verder te ontwikkelen en te verbeteren.
-        </p>
-        <p>
-            Profinn verkoopt uw gegevens niet
-            Profinn zal uw persoonlijke gegevens niet aan derden verkopen. Onze werknemers en door ons ingeschakelde
-            derden zijn verplicht om de vertrouwelijkheid van uw gegevens te respecteren.
-        </p>
-        <p>
-            Feedback
-            Indien u nog vragen mocht hebben over de privacy verklaring van Profinn, dan kunt u contact met ons
-            opnemen. Onze klantenservice helpt u verder in het geval u informatie wilt hebben over het gebruik van uw
-            gegevens of wanneer u deze wilt wijzigen. Deze privacy verklaring is met de grootst mogelijke
-            zorgvuldigheid opgesteld. Mocht u toch nog aanleiding zien voor een aanvulling, dan zien wij die graag
-            tegemoet op info@profinn.nl.
-        </p>
+        <h2 class="text-large text-bod mb-10">{{ post.title }}</h2>
+        {{ post.content }}
     </div>
 </section>
 

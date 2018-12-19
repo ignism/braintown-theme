@@ -3,60 +3,34 @@
         <h2 class="text-larger">Referenties</h2>
     </div>
     <div class="flex flex-wrap -mx-5/2 mt-16 slider-wrapper">
-        <div class="w-5/6 tablet:w-2/3 desktop:w-1/2 px-5/2 slider ml-0 tablet:ml-2/12 desktop:ml-3/12">
-            <div class="slide">
-                <p class="text-large mb-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <p class="text-large ml-5">
-                    <span class="reference-name font-bold">
-                        Voornaam Achternaam
-                    </span><br>
-                    Organisatie B.V.
-                </p>
-            </div>
-            <div class="slide">
-                <p class="text-large mb-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                </p>
-                <p class="text-large ml-5">
-                    <span class="reference-name font-bold">
-                        Voornaam Achternaam
-                    </span><br>
-                    Organisatie B.V.
-                </p>
-            </div>
-            <div class="slide">
-                <p class="text-large mb-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur.
-                </p>
-                <p class="text-large ml-5">
-                    <span class="reference-name font-bold">
-                        Voornaam Achternaam
-                    </span><br>
-                    Organisatie B.V.
-                </p>
+        <div class="w-5/6 tablet:w-2/3 desktop:w-1/2 px-5/2 ml-0 tablet:ml-2/12 desktop:ml-3/12">
+            <div class="slider -mx-5">
+                {% for item in post.meta('home_references') %}
+                    <div class="slide px-5">
+                        <p class="text-large mb-10">
+                            {{ item.quote }}
+                        </p>
+                        <p class="text-large ml-5">
+                            <span class="reference-name font-bold">
+                                {{ item.full_name }}
+                            </span><br>
+                            {{ item.organisation }}
+                        </p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
         <div class="w-2/12 tablet:w-1/12 px-5/2 ml-0 tablet:ml-1/12 desktop:ml-2/12 flex flex-wrap">
             <div class="w-full h-full pb-40 flex flex-wrap content-center slider-navigation">
-                <div class="w-full py-5 text-right tablet:text-center slider-button" data-slide="0"><a>01</a></div>
-                <div class="w-full py-5 text-right tablet:text-center slider-button" data-slide="1"><a>02</a></div>
-                <div class="w-full py-5 text-right tablet:text-center slider-button" data-slide="2"><a>03</a></div>
+                {% for item in post.meta('home_references') %}
+                    <div class="w-full py-5 text-right tablet:text-center slider-button" data-slide="{{ loop.index0 }}"><a>0{{ loop.index }}</a></div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </section>
 
-<section class="w-full">
-    <div class="w-full" style="height: 220px; background: url(https://dummyimage.com/400x200/888/bbb); background-position: center; background-size: cover;"></div>
+<section class="w-full relative ">
+    <div class="absolute pin bg-green/2 z-10"></div>
+    <div class="w-full relative z-0" style="height: 220px; background: url({{ Image(post.footer_background).src }}); background-position: center; background-size: cover;"></div>
 </section>
