@@ -156,3 +156,5 @@ function my_remove_menu_pages()
     remove_menu_page('tools.php'); // Tools
     remove_menu_page('options-general.php'); // Settings
 }
+
+require_once('includes/acf.php');
