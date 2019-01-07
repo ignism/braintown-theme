@@ -7,15 +7,17 @@
         </div>
         <div class="w-full tablet:w-5/12 px-5/2 flex flex-wrap justify-start tablet:justify-around text-large mb-10 tablet:mb-16 desktop:mb-20 ml-0 desktop:ml-1/12">
             <div class="flex flex-wrap items-end mr-10 tablet:mr-auto">
-                <div data-aos="fade-left">Assets<br>
-                    {{ numbers.assets }}
+                <div data-aos="fade-left">{{ numbers.numbers_1.title }}<br>
+                    {{ numbers.numbers_1.value }}
                 </div>
             </div>
             <div class="flex flex-wrap items-end mr-10 tablet:mr-auto">
-                <div data-aos="fade-left" data-aos-delay="200">Totaal m2<br>{{ numbers.total_area }}m2</div>
+                <div data-aos="fade-left" data-aos-delay="200">{{ numbers.numbers_2.title }}<br>
+                {{ numbers.numbers_2.value }}</div>
             </div>
             <div class="flex flex-wrap items-end mr-auto">
-                <div data-aos="fade-left" data-aos-delay="400">Klanten<br>{{ numbers.clients }}</div>
+                <div data-aos="fade-left" data-aos-delay="400">{{ numbers.numbers_3.title }}<br>
+                {{ numbers.numbers_3.value }}</div>
             </div>
         </div>
     </div>
