@@ -6,13 +6,13 @@ import Siema from 'siema'
     wrappers.forEach(wrapper => {
         let slider = wrapper.querySelector('.slider')
         let navigation = wrapper.querySelector('.navigation')
+        let buttons = Array.from(wrapper.getElementsByClassName('slider-button'))
 
         const instance = new Siema({
             selector: slider,
-            loop: true
+            loop: true,
+            onChange: onChangeCallback            
         });        
-
-        let buttons = Array.from(wrapper.getElementsByClassName('slider-button'))
 
         buttons[0].classList.add('active')
 
@@ -31,4 +31,14 @@ function deactivate(elements) {
     elements.forEach(element => {
         element.classList.remove('active')
     })
+}
+
+function onChangeCallback() {
+  let parent = this.selector.parentElement
+  let wrapper = parent.parentElement
+  let buttons = Array.from(wrapper.getElementsByClassName('slider-button'))
+  let index = parseInt(this.currentSlide)
+
+  deactivate(buttons)
+  buttons[index].classList.add('active')
 }
