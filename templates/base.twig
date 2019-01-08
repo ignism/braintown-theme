@@ -26,7 +26,12 @@
 {% endblock %}
 
 {% block footer %}
-    {% include 'footer.twig' %}
+    {% include 'footer.twig' with {
+        'mail': post.footer_mail,
+        'phone': post.footer_phone,
+        'address': post.footer_address,
+        'text': post.footer_text
+    } %}
 {% endblock %}
 
 {{ function('wp_footer') }}

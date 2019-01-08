@@ -33,7 +33,10 @@
                     <a href="{{ projects[index].link }}">
                         <div class="h-full px-5 hover:pr-3 py-5 bg-white flex flex-wrap content-between">
                             <div class="w-full">
-                                {{ projects[index].title }}<br>{{ projects[index].meta('description_numbers').total_area }}m2
+                                {{ projects[index].title }}<br>
+                                {% if projects[index].meta('totaal_m2') %}
+                                            {{ projects[index].meta('totaal_m2') }} m2
+                                        {% endif %}
                             </div>
                             <div class="w-full h-4">
                                 <img src="{{ theme.link }}/assets/images/arrow-right.svg" class="block ml-auto mr-0">
@@ -48,7 +51,10 @@
                         <a href="{{ projects[index].link }}">
                             <div class="h-full px-5 hover:pr-3 py-5 bg-white flex flex-wrap content-between">
                                 <div class="w-full">
-                                    {{ projects[index].title }}<br>{{ projects[index].meta('description_numbers').total_area }}
+                                    {{ projects[index].title }}<br>
+                                    {% if projects[index].meta('totaal_m2') %}
+                                            {{ projects[index].meta('totaal_m2') }} m2
+                                        {% endif %}
                                 </div>
                                 <div class="w-full h-4">
                                     <img src="{{ theme.link }}/assets/images/arrow-right.svg" class="block ml-auto mr-0">
@@ -67,7 +73,10 @@
                         <img src="{{ Image(projects[index].meta('header_background')).src }}" class="block w-full h-auto">
                         <div class="px-5 hover:pr-3 py-5 bg-white flex flex-wrap justify-between items-end">
                             <div>
-                                {{ projects[index].title }}<br>{{ projects[index].meta('description_numbers').total_area }}
+                                {{ projects[index].title }}<br>
+                                {% if projects[index].meta('totaal_m2') %}
+                                            {{ projects[index].meta('totaal_m2') }} m2
+                                        {% endif %}
                             </div>
                             <div class="w-4 h-4">
                                 <img src="{{ theme.link }}/assets/images/arrow-right.svg" class="block ml-auto mr-0">
@@ -86,7 +95,10 @@
                         <img src="{{ Image(projects[index].meta('header_background')).src }}" class="block w-full h-auto">
                         <div class="px-5 hover:pr-3 py-5 bg-white flex flex-wrap justify-between items-end">
                             <div>
-                                {{ projects[index].title }}<br>{{ projects[index].meta('description_numbers').total_area }}
+                                {{ projects[index].title }}<br>
+                                {% if projects[index].meta('totaal_m2') %}
+                                            {{ projects[index].meta('totaal_m2') }} m2
+                                        {% endif %}
                             </div>
                             <div class="w-4 h-4">
                                 <img src="{{ theme.link }}/assets/images/arrow-right.svg" class="block ml-auto mr-0">
@@ -102,7 +114,10 @@
                             <a href="{{ projects[index].link }}">
                                 <div class="h-full px-5 hover:pr-3 py-5 bg-white flex flex-wrap content-between">
                                     <div class="w-full">
-                                        {{ projects[index].title }}<br>{{ projects[index].meta('description_numbers').total_area }}
+                                        {{ projects[index].title }}<br>
+                                        {% if projects[index].meta('totaal_m2') %}
+                                            {{ projects[index].meta('totaal_m2') }} m2
+                                        {% endif %}
                                     </div>
                                     <div class="w-full h-4">
                                         <img src="{{ theme.link }}/assets/images/arrow-right.svg" class="block ml-auto mr-0">
@@ -117,7 +132,10 @@
                                 <a href="{{ projects[index].link }}">
                                     <div class="h-full px-5 hover:pr-3 py-5 bg-white flex flex-wrap content-between">
                                         <div class="w-full">
-                                            {{ projects[index].title }}<br>{{ projects[index].meta('description_numbers').total_area }}
+                                            {{ projects[index].title }}<br>
+                                            {% if projects[index].meta('totaal_m2') %}
+                                            {{ projects[index].meta('totaal_m2') }} m2
+                                        {% endif %}
                                         </div>
                                         <div class="w-full h-4">
                                             <img src="{{ theme.link }}/assets/images/arrow-right.svg" class="block ml-auto mr-0">
